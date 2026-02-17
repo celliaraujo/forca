@@ -1,62 +1,36 @@
-async function carregarDados(){
-    try {
-        const resposta = await fetch('dados.json');
-        if(!resposta.ok){
-            throw new Error('Erro ao carregar dados.');
-        }
+const fs = require('fs');
+const dados = fs.readFileSync('dados.json', 'utf8');
+const objeto = JSON.parse(dados);
 
-        const dados = await resposta.json();
 
-        console.log(dados);
-        return dados;
-    }catch(erro){
-        console.error('Erro ao buscar JSON: ', erro);
-    }
+const prompt = require('prompt-sync')();
 
+
+const palavras = [];
+const dicas = [];
+
+for(let posicao = 0; posicao < objeto.palavras.length; posicao++){
+    palavras.push(objeto.palavras[posicao].texto);
+    dicas.push(objeto.palavras[posicao].dicas);
 }
 
-async function carregarPalavras(){
-    const objeto = await carregarDados();
+console.log(palavras);
 
-    console.log(objeto.palavras);
-
-    const palavras = [];
-    const dicas = [];
-
-    for(let posicao = 0; posicao < objeto.palavras.length; posicao++){
-        palavras.push(objeto.palavras[posicao].texto);
-        dicas.push(objeto.palavras[posicao].dicas);
-    }
-    console.log(palavras);
-    iniciarJogo(palavras);
-
-}
-
-carregarPalavras();
-
-
-
-function iniciarJogo(palavras){
+function iniciarJogo(){
     let palavraSorteada = palavras[4];
     let tamanhoPalavra = palavraSorteada.length;
-    const palavra = document.querySelector('.palavra');
     
-
-
     console.log(`A palavra sorteada possui ${tamanhoPalavra} letras.`);
     let palavraOculta = "";
     for(let letra = 0; letra < tamanhoPalavra; letra++){
         palavraOculta += "_";
-        let caixa = document.createElement('div');
-        caixa.classList.add('caixa');
-        caixa.id = `letra${letra}`;
-        palavra.appendChild(caixa);
+        
 
     }
     console.log(palavraOculta);
 
     while(palavraOculta.includes("_")){
-        //const entrada = prompt("Digite uma letra: ");
+        const entrada = prompt("Digite uma letra: ");
         //console.log("Sua letra foi ", entrada);
         //Fazer um loop com indexof para encontrar cada posição onde a letra aparece....Não precisa... Basta iterar na string e cada posição que a letra for achada, substitui o underline na mesma posição na string da palavra oculta
         if(palavraSorteada.includes(entrada.toUpperCase())){
@@ -80,6 +54,6 @@ function iniciarJogo(palavras){
 
 }
 
-
+iniciarJogo();
 
 
