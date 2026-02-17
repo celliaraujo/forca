@@ -1,0 +1,29 @@
+{
+    "palavras":[
+        {
+            "texto":"COMPUTADOR",
+            "categoria":"tecnologia",
+            "dica":"Máquina usada para processar informações"
+        },
+        {
+            "texto":"CALCULADORA",
+            "categoria":"tecnologia",
+            "dica":"Máquina usada para fazer cálculos matemáticos"
+        },
+        {
+            "texto":"MONITOR",
+            "categoria":"tecnologia",
+            "dica":"Dispositivo de saída de vídeo"
+        },
+        {
+            "texto":"IMPRESSORA",
+            "categoria":"tecnologia",
+            "dica":"Dispositivo de saída de imagem"
+        },
+        {
+            "texto":"MOUSE",
+            "categoria":"tecnologia",
+            "dica":"Controla a posição do cursor na interface gráfica do PC."
+        },
+    ]
+}
