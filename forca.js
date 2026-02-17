@@ -5,7 +5,7 @@ palavras.push("LEÃO", "COBRA", "MORCEGO");
 
 //console.log(palavras);
 
-let palavraSorteada = palavras[2];
+let palavraSorteada = palavras[4];
 let tamanhoPalavra = palavraSorteada.length;
 
 console.log(`A palavra sorteada possui ${tamanhoPalavra} letras.`);
