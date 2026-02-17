@@ -6,8 +6,9 @@ const objeto = JSON.parse(dados);
 const prompt = require('prompt-sync')();
 
 
-let palavras = [];
-let dicas = [];
+const palavras = [];
+const dicas = [];
+
 for(let posicao = 0; posicao < objeto.palavras.length; posicao++){
     palavras.push(objeto.palavras[posicao].texto);
     dicas.push(objeto.palavras[posicao].dicas);
