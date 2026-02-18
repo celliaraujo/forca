@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="forca.js"></script>
+    <script src="forca.js" defer></script>
     <link rel="stylesheet" href="style.css">
     <title>Jogo da Forca</title>
 </head>
@@ -11,10 +11,14 @@
     <div class="jogo">
         <h1>Jogo da Forca</h1>
         <h2>Digite uma letra e descubra a palavra secreta!</h2>
-        <input type="text" name="letra" id="letra" maxlength="1">
-        <button>Testar</button>
-        <div class="dica"></div>
+        <div class="input-area">
+            <input type="text" name="letra" id="letra" maxlength="1">
+            <button id="btn-testar">Testar</button>
+        </div>
+        
+        
         <div class="palavra"></div>
+        <div class="dica"></div>
     </div>
 </body>
 </html>

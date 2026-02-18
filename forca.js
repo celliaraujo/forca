@@ -1,3 +1,12 @@
+const btnTestar = document.getElementById("btn-testar");
+const palavras = [];
+const dicas = [];
+let palavraSorteada = "";
+let tamanhoPalavra = 0;
+let palavraOculta = "";
+const palavra = document.querySelector('.palavra');
+const divDica = document.querySelector('.dica');
+
 async function carregarDados(){
     try {
         const resposta = await fetch('dados.json');
@@ -15,36 +24,52 @@ async function carregarDados(){
 
 }
 
+
 async function carregarPalavras(){
     const objeto = await carregarDados();
 
-    console.log(objeto.palavras);
-
-    const palavras = [];
-    const dicas = [];
-
     for(let posicao = 0; posicao < objeto.palavras.length; posicao++){
         palavras.push(objeto.palavras[posicao].texto);
-        dicas.push(objeto.palavras[posicao].dicas);
+        dicas.push(objeto.palavras[posicao].dica);
     }
-    console.log(palavras);
-    iniciarJogo(palavras);
+    console.log(dicas[0]);
 
 }
 
-carregarPalavras();
+async function main(){
+    await carregarDados();
+    await carregarPalavras();
+    await iniciarJogo();
+}
+
+main();
 
 
+btnTestar.addEventListener('click', function(){
+    const inputLetra = document.getElementById("letra");
+    if(palavraSorteada.includes(inputLetra.value.toUpperCase())){        
+        let novaPalavra = "";
+        for(let posicao = 0; posicao < tamanhoPalavra; posicao++){
+            if(palavraSorteada[posicao] === inputLetra.value.toUpperCase()){
+                const letraAtual = document.getElementById(`letra${posicao}`);
+                letraAtual.innerText = inputLetra.value.toUpperCase();
+                novaPalavra += inputLetra.value.toUpperCase();
+            }else{
+                novaPalavra += palavraOculta[posicao];
+            }            
+        }
+        palavraOculta = novaPalavra;
+    }
+    inputLetra.value = "";
 
-function iniciarJogo(palavras){
-    let palavraSorteada = palavras[4];
-    let tamanhoPalavra = palavraSorteada.length;
-    const palavra = document.querySelector('.palavra');
-    
+});
 
 
+function iniciarJogo(){
+    palavraSorteada = palavras[0];
+    tamanhoPalavra = palavraSorteada.length;
     console.log(`A palavra sorteada possui ${tamanhoPalavra} letras.`);
-    let palavraOculta = "";
+    palavraOculta = "";
     for(let letra = 0; letra < tamanhoPalavra; letra++){
         palavraOculta += "_";
         let caixa = document.createElement('div');
@@ -53,30 +78,15 @@ function iniciarJogo(palavras){
         palavra.appendChild(caixa);
 
     }
+
+    let txtDica = document.createElement('h3');
+    txtDica.innerText = dicas[0];
+    divDica.appendChild(txtDica);
+
+
     console.log(palavraOculta);
 
-    while(palavraOculta.includes("_")){
-        //const entrada = prompt("Digite uma letra: ");
-        //console.log("Sua letra foi ", entrada);
-        //Fazer um loop com indexof para encontrar cada posição onde a letra aparece....Não precisa... Basta iterar na string e cada posição que a letra for achada, substitui o underline na mesma posição na string da palavra oculta
-        if(palavraSorteada.includes(entrada.toUpperCase())){
-            //console.log(palavraSorteada[1]);
-            //console.log("Letra ENCONTRADA!!!");
-            let novaPalavra = "";
-            for(let posicao = 0; posicao < tamanhoPalavra; posicao++){
-                if(palavraSorteada[posicao] === entrada.toUpperCase()){
-                    novaPalavra += palavraSorteada[posicao];
-                }else{
-                    novaPalavra += palavraOculta[posicao];
-                }
-            }
-            palavraOculta = novaPalavra;
-            console.log(palavraOculta);
-        }else{
-            console.log(`A letra '${entrada.toUpperCase()}' não faz parte da palavra.`);
-        }
-    }
-    console.log("Parabéns!!!");
+    
 
 }
 

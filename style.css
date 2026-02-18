@@ -1,23 +1,99 @@
+/* --- reset.css - Normalização básica --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    text-align: center;
-    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background-color: #f4f4f4;
+    padding: 20px;
     display: flex;
     flex-direction: column;
+}
+
+/* --- Layout e Elementos --- */
+.jogo {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    
 }
 
 .palavra{
     display: flex;
     justify-content: center;
-    margin: 30px;
+    margin: 30px 0;
+    gap: 5px;
+}
+
+h1, h2, h3 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button {
+    border: none;   
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 14px;    
+}
+button:focus {  
+    outline: 0;   
+}
+button:hover {   
+    background-color: #3b5268; 
+}
+
+input {
+    width: 70px;
+    height: 30px;
+    border: none;
+    box-shadow: inset 0 1px 5px rgba(0,0,0,0.1);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 20px;
+}
+input:focus {    
+    outline: 0;
     
 }
 
-.caixa{
+.caixa {
     width: 50px;
     height: 50px;
-    border: 1px solid rgb(175, 168, 164);
+    border: none;
+    box-shadow: inset 0 1px 10px rgba(0,0,0,0.1);
+    padding: 6px 10px;
     border-radius: 6px;
-    background-color: antiquewhite;
-    font-size: 34px;
+    font-size: 30px;
+    font-weight: 500;
+    color: dimgray;
 }
 
+.input-area {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
