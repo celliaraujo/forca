@@ -12,7 +12,7 @@
         <h1>Jogo da Forca</h1>
         <h2>Digite uma letra e descubra a palavra secreta!</h2>
         <div class="input-area">
-            <input type="text" name="letra" id="letra" maxlength="1">
+            <input type="text" name="letra" id="letra" maxlength="1" oninput="this.value = this.value.toUpperCase()">
             <button id="btn-testar">Testar</button>
         </div>
         
