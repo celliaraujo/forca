@@ -57,17 +57,20 @@ function iniciarJogo(){
     }
 
     let txtDica = document.createElement('h3');
-    txtDica.innerText = dicas[indicePalavras[palavraAtual]];
+    txtDica.innerText = "Dica: " + dicas[indicePalavras[palavraAtual]];
     divDica.appendChild(txtDica);
 
     console.log(palavraOculta);    
 
 }
 
-async function main(){
-    await carregarDados();
-    await carregarPalavras();
-    await iniciarJogo();
+function parabens(){
+    let parabens = document.createElement('h4');
+    parabens.innerText = "PARABÉNS!!!"
+    const inputArea = document.querySelector('.input-area');
+    inputArea.innerHTML = "";
+    inputArea.appendChild(parabens);
+
 }
 
 function shuffle(dados){
@@ -78,6 +81,14 @@ function shuffle(dados){
 
     return dados;
 }
+
+async function main(){
+    await carregarDados();
+    await carregarPalavras();
+    await iniciarJogo();
+}
+
+
 
 main();
 
@@ -98,5 +109,9 @@ btnTestar.addEventListener('click', function(){
         palavraOculta = novaPalavra;
     }
     inputLetra.value = "";
+
+    if(!palavraOculta.includes('_')){
+        parabens();
+    }
 
 });

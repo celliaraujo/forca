@@ -3,22 +3,22 @@
         {
             "texto":"COMPUTADOR",
             "categoria":"tecnologia",
-            "dica":"Máquina usada para processar informações"
+            "dica":"Máquina usada para processar informações."
         },
         {
             "texto":"CALCULADORA",
             "categoria":"tecnologia",
-            "dica":"Máquina usada para fazer cálculos matemáticos"
+            "dica":"Máquina usada para fazer cálculos matemáticos."
         },
         {
             "texto":"MONITOR",
             "categoria":"tecnologia",
-            "dica":"Dispositivo de saída de vídeo"
+            "dica":"Dispositivo de saída de vídeo."
         },
         {
             "texto":"IMPRESSORA",
             "categoria":"tecnologia",
-            "dica":"Dispositivo de saída de imagem"
+            "dica":"Dispositivo de saída de imagem."
         },
         {
             "texto":"MOUSE",
