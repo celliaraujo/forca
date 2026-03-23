@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <script src="cadastrar.js" defer></script>
+    <title>Jogo da Forca</title>
+</head>
+<body>    
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li>|</li>
+                <li><a href="cadastrar_palavras.html">Cadastrar Palavra</a></li>
+            </ul>
+        </nav>
+        <hr>
+        <form id="form-palavra">
+            <input type="text" name="categoria" id="categoria" placeholder="Digite a categoria:">
+            <input type="text" name="palavra" id="palavra" placeholder="Digite a palavra:">
+            <textarea name="dica" id="dica" placeholder="Digite a dica:"></textarea>
+            <button type="submit">Cadastrar Palavra</button>
+        </form>
+    </div>
+</body>
+</html>

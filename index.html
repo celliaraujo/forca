@@ -3,20 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
     <script src="forca.js" defer></script>
+
     <link rel="stylesheet" href="style.css">
     <title>Jogo da Forca</title>
 </head>
 <body>
     <div class="jogo">
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li>|</li>
+                <li><a href="cadastrar_palavras.html">Cadastrar Palavra</a></li>
+            </ul>
+        </nav>
+        <hr>
         <h1>Jogo da Forca</h1>
         <h2>Digite uma letra e descubra a palavra secreta!</h2>
         <div class="input-area">
             <input type="text" name="letra" id="letra" maxlength="1" oninput="this.value = this.value.toUpperCase()">
             <button id="btn-testar">Testar</button>
-        </div>
-        
-        
+        </div>        
         <div class="palavra"></div>
         <div class="dica"></div>
     </div>
