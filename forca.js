@@ -10,7 +10,6 @@ let palavraAtual = 0;
 let indicePalavras = [];
 
 
-
 const firebaseConfig = {
   apiKey: "AIzaSyDLDQaewAaEvDkW3j_CaTSaqJk9nduZbPU",
   authDomain: "forca-game-42393.firebaseapp.com",
@@ -23,10 +22,6 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
-async function cadastrarPalavra(palavra, dica) {
-  await db.collection("palavras").add({ palavra, dica });
-  alert("Palavra cadastrada!");
-}
 
 async function carregarPalavras() {
   const snapshot = await db.collection("palavras").get();
@@ -110,15 +105,21 @@ function shuffle(dados){
 
 async function main(){
     const lista = await carregarPalavras();
+    console.log(lista);
 
   // Preenche os arrays palavras e dicas com os dados do Firestore
-  for (let posicao = 0; posicao < lista.length; posicao++) {
-    palavras.push(lista[posicao].palavra);
-    dicas.push(lista[posicao].dica);
-    indicePalavras.push(posicao);
-  }
+  palavras.length = 0; // limpa antes
+  dicas.length = 0;
+  indicePalavras.length = 0;
 
-  // Embaralha os índices
+  lista.forEach((item, posicao) => {
+    palavras.push(item.texto);
+    dicas.push(item.dica);
+    indicePalavras.push(posicao);
+  });
+
+  console.log(palavras);
+
   indicePalavras = shuffle(indicePalavras);
 
   // Só inicia o jogo se houver palavras
